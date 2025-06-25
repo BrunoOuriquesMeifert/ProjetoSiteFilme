@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "../filmes/styles/Home.module.css";
 import MovieCard from "../filmes/components/MovieCard";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
   
 
 const movies = [
@@ -26,6 +29,18 @@ const movies = [
 
 export default function FavoritosPage() {
   const [favorites, setFavorites] = useState<string[]>([]);
+  const { data, status } = useSession();
+    const router = useRouter();
+  
+    useEffect(() => {
+      if (status === "unauthenticated") {
+        router.push("/login");
+      }
+    }, [status]);
+    
+  if (status !== "authenticated") {
+    return <div></div>;
+  }
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("favorites") || "[]");
