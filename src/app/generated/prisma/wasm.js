@@ -148,6 +148,23 @@ exports.Prisma.TarefaScalarFieldEnum = {
   deleted_at: 'deleted_at'
 };
 
+exports.Prisma.FilmesScalarFieldEnum = {
+  id: 'id',
+  titulo: 'titulo',
+  descricao: 'descricao',
+  imagemUrl: 'imagemUrl',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  deleted_at: 'deleted_at'
+};
+
+exports.Prisma.FavoritoScalarFieldEnum = {
+  id: 'id',
+  usuario_id: 'usuario_id',
+  filme_id: 'filme_id',
+  created_at: 'created_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -162,7 +179,9 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   Usuario: 'Usuario',
   Postagem: 'Postagem',
-  Tarefa: 'Tarefa'
+  Tarefa: 'Tarefa',
+  Filmes: 'Filmes',
+  Favorito: 'Favorito'
 };
 
 /**

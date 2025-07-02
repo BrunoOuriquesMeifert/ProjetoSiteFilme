@@ -28,6 +28,16 @@ export type Postagem = $Result.DefaultSelection<Prisma.$PostagemPayload>
  * 
  */
 export type Tarefa = $Result.DefaultSelection<Prisma.$TarefaPayload>
+/**
+ * Model Filmes
+ * 
+ */
+export type Filmes = $Result.DefaultSelection<Prisma.$FilmesPayload>
+/**
+ * Model Favorito
+ * 
+ */
+export type Favorito = $Result.DefaultSelection<Prisma.$FavoritoPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -183,6 +193,26 @@ export class PrismaClient<
     * ```
     */
   get tarefa(): Prisma.TarefaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.filmes`: Exposes CRUD operations for the **Filmes** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Filmes
+    * const filmes = await prisma.filmes.findMany()
+    * ```
+    */
+  get filmes(): Prisma.FilmesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.favorito`: Exposes CRUD operations for the **Favorito** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Favoritos
+    * const favoritos = await prisma.favorito.findMany()
+    * ```
+    */
+  get favorito(): Prisma.FavoritoDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -625,7 +655,9 @@ export namespace Prisma {
   export const ModelName: {
     Usuario: 'Usuario',
     Postagem: 'Postagem',
-    Tarefa: 'Tarefa'
+    Tarefa: 'Tarefa',
+    Filmes: 'Filmes',
+    Favorito: 'Favorito'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -644,7 +676,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "usuario" | "postagem" | "tarefa"
+      modelProps: "usuario" | "postagem" | "tarefa" | "filmes" | "favorito"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -870,6 +902,154 @@ export namespace Prisma {
           }
         }
       }
+      Filmes: {
+        payload: Prisma.$FilmesPayload<ExtArgs>
+        fields: Prisma.FilmesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FilmesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FilmesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload>
+          }
+          findFirst: {
+            args: Prisma.FilmesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FilmesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload>
+          }
+          findMany: {
+            args: Prisma.FilmesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload>[]
+          }
+          create: {
+            args: Prisma.FilmesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload>
+          }
+          createMany: {
+            args: Prisma.FilmesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FilmesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload>[]
+          }
+          delete: {
+            args: Prisma.FilmesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload>
+          }
+          update: {
+            args: Prisma.FilmesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload>
+          }
+          deleteMany: {
+            args: Prisma.FilmesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FilmesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FilmesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload>[]
+          }
+          upsert: {
+            args: Prisma.FilmesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilmesPayload>
+          }
+          aggregate: {
+            args: Prisma.FilmesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFilmes>
+          }
+          groupBy: {
+            args: Prisma.FilmesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FilmesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FilmesCountArgs<ExtArgs>
+            result: $Utils.Optional<FilmesCountAggregateOutputType> | number
+          }
+        }
+      }
+      Favorito: {
+        payload: Prisma.$FavoritoPayload<ExtArgs>
+        fields: Prisma.FavoritoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FavoritoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FavoritoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          findFirst: {
+            args: Prisma.FavoritoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FavoritoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          findMany: {
+            args: Prisma.FavoritoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>[]
+          }
+          create: {
+            args: Prisma.FavoritoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          createMany: {
+            args: Prisma.FavoritoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FavoritoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>[]
+          }
+          delete: {
+            args: Prisma.FavoritoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          update: {
+            args: Prisma.FavoritoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          deleteMany: {
+            args: Prisma.FavoritoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FavoritoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FavoritoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>[]
+          }
+          upsert: {
+            args: Prisma.FavoritoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          aggregate: {
+            args: Prisma.FavoritoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFavorito>
+          }
+          groupBy: {
+            args: Prisma.FavoritoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FavoritoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FavoritoCountArgs<ExtArgs>
+            result: $Utils.Optional<FavoritoCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -957,6 +1137,8 @@ export namespace Prisma {
     usuario?: UsuarioOmit
     postagem?: PostagemOmit
     tarefa?: TarefaOmit
+    filmes?: FilmesOmit
+    favorito?: FavoritoOmit
   }
 
   /* Types for Logging */
@@ -1053,11 +1235,13 @@ export namespace Prisma {
   export type UsuarioCountOutputType = {
     postagens: number
     Tarefa: number
+    favorito: number
   }
 
   export type UsuarioCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     postagens?: boolean | UsuarioCountOutputTypeCountPostagensArgs
     Tarefa?: boolean | UsuarioCountOutputTypeCountTarefaArgs
+    favorito?: boolean | UsuarioCountOutputTypeCountFavoritoArgs
   }
 
   // Custom InputTypes
@@ -1083,6 +1267,44 @@ export namespace Prisma {
    */
   export type UsuarioCountOutputTypeCountTarefaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TarefaWhereInput
+  }
+
+  /**
+   * UsuarioCountOutputType without action
+   */
+  export type UsuarioCountOutputTypeCountFavoritoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoritoWhereInput
+  }
+
+
+  /**
+   * Count Type FilmesCountOutputType
+   */
+
+  export type FilmesCountOutputType = {
+    favoritos: number
+  }
+
+  export type FilmesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    favoritos?: boolean | FilmesCountOutputTypeCountFavoritosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * FilmesCountOutputType without action
+   */
+  export type FilmesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FilmesCountOutputType
+     */
+    select?: FilmesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FilmesCountOutputType without action
+   */
+  export type FilmesCountOutputTypeCountFavoritosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoritoWhereInput
   }
 
 
@@ -1314,6 +1536,7 @@ export namespace Prisma {
     deleted_at?: boolean
     postagens?: boolean | Usuario$postagensArgs<ExtArgs>
     Tarefa?: boolean | Usuario$TarefaArgs<ExtArgs>
+    favorito?: boolean | Usuario$favoritoArgs<ExtArgs>
     _count?: boolean | UsuarioCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
 
@@ -1354,6 +1577,7 @@ export namespace Prisma {
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     postagens?: boolean | Usuario$postagensArgs<ExtArgs>
     Tarefa?: boolean | Usuario$TarefaArgs<ExtArgs>
+    favorito?: boolean | Usuario$favoritoArgs<ExtArgs>
     _count?: boolean | UsuarioCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UsuarioIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1364,6 +1588,7 @@ export namespace Prisma {
     objects: {
       postagens: Prisma.$PostagemPayload<ExtArgs>[]
       Tarefa: Prisma.$TarefaPayload<ExtArgs>[]
+      favorito: Prisma.$FavoritoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1770,6 +1995,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     postagens<T extends Usuario$postagensArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$postagensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostagemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Tarefa<T extends Usuario$TarefaArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$TarefaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TarefaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    favorito<T extends Usuario$favoritoArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$favoritoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2238,6 +2464,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TarefaScalarFieldEnum | TarefaScalarFieldEnum[]
+  }
+
+  /**
+   * Usuario.favorito
+   */
+  export type Usuario$favoritoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    where?: FavoritoWhereInput
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    cursor?: FavoritoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FavoritoScalarFieldEnum | FavoritoScalarFieldEnum[]
   }
 
   /**
@@ -4500,6 +4750,2227 @@ export namespace Prisma {
 
 
   /**
+   * Model Filmes
+   */
+
+  export type AggregateFilmes = {
+    _count: FilmesCountAggregateOutputType | null
+    _avg: FilmesAvgAggregateOutputType | null
+    _sum: FilmesSumAggregateOutputType | null
+    _min: FilmesMinAggregateOutputType | null
+    _max: FilmesMaxAggregateOutputType | null
+  }
+
+  export type FilmesAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type FilmesSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type FilmesMinAggregateOutputType = {
+    id: number | null
+    titulo: string | null
+    descricao: string | null
+    imagemUrl: string | null
+    created_at: Date | null
+    updated_at: Date | null
+    deleted_at: Date | null
+  }
+
+  export type FilmesMaxAggregateOutputType = {
+    id: number | null
+    titulo: string | null
+    descricao: string | null
+    imagemUrl: string | null
+    created_at: Date | null
+    updated_at: Date | null
+    deleted_at: Date | null
+  }
+
+  export type FilmesCountAggregateOutputType = {
+    id: number
+    titulo: number
+    descricao: number
+    imagemUrl: number
+    created_at: number
+    updated_at: number
+    deleted_at: number
+    _all: number
+  }
+
+
+  export type FilmesAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type FilmesSumAggregateInputType = {
+    id?: true
+  }
+
+  export type FilmesMinAggregateInputType = {
+    id?: true
+    titulo?: true
+    descricao?: true
+    imagemUrl?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+  }
+
+  export type FilmesMaxAggregateInputType = {
+    id?: true
+    titulo?: true
+    descricao?: true
+    imagemUrl?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+  }
+
+  export type FilmesCountAggregateInputType = {
+    id?: true
+    titulo?: true
+    descricao?: true
+    imagemUrl?: true
+    created_at?: true
+    updated_at?: true
+    deleted_at?: true
+    _all?: true
+  }
+
+  export type FilmesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Filmes to aggregate.
+     */
+    where?: FilmesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Filmes to fetch.
+     */
+    orderBy?: FilmesOrderByWithRelationInput | FilmesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FilmesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Filmes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Filmes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Filmes
+    **/
+    _count?: true | FilmesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FilmesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FilmesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FilmesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FilmesMaxAggregateInputType
+  }
+
+  export type GetFilmesAggregateType<T extends FilmesAggregateArgs> = {
+        [P in keyof T & keyof AggregateFilmes]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFilmes[P]>
+      : GetScalarType<T[P], AggregateFilmes[P]>
+  }
+
+
+
+
+  export type FilmesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FilmesWhereInput
+    orderBy?: FilmesOrderByWithAggregationInput | FilmesOrderByWithAggregationInput[]
+    by: FilmesScalarFieldEnum[] | FilmesScalarFieldEnum
+    having?: FilmesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FilmesCountAggregateInputType | true
+    _avg?: FilmesAvgAggregateInputType
+    _sum?: FilmesSumAggregateInputType
+    _min?: FilmesMinAggregateInputType
+    _max?: FilmesMaxAggregateInputType
+  }
+
+  export type FilmesGroupByOutputType = {
+    id: number
+    titulo: string
+    descricao: string
+    imagemUrl: string
+    created_at: Date
+    updated_at: Date
+    deleted_at: Date | null
+    _count: FilmesCountAggregateOutputType | null
+    _avg: FilmesAvgAggregateOutputType | null
+    _sum: FilmesSumAggregateOutputType | null
+    _min: FilmesMinAggregateOutputType | null
+    _max: FilmesMaxAggregateOutputType | null
+  }
+
+  type GetFilmesGroupByPayload<T extends FilmesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FilmesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FilmesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FilmesGroupByOutputType[P]>
+            : GetScalarType<T[P], FilmesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FilmesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    titulo?: boolean
+    descricao?: boolean
+    imagemUrl?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+    favoritos?: boolean | Filmes$favoritosArgs<ExtArgs>
+    _count?: boolean | FilmesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["filmes"]>
+
+  export type FilmesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    titulo?: boolean
+    descricao?: boolean
+    imagemUrl?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+  }, ExtArgs["result"]["filmes"]>
+
+  export type FilmesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    titulo?: boolean
+    descricao?: boolean
+    imagemUrl?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+  }, ExtArgs["result"]["filmes"]>
+
+  export type FilmesSelectScalar = {
+    id?: boolean
+    titulo?: boolean
+    descricao?: boolean
+    imagemUrl?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    deleted_at?: boolean
+  }
+
+  export type FilmesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "titulo" | "descricao" | "imagemUrl" | "created_at" | "updated_at" | "deleted_at", ExtArgs["result"]["filmes"]>
+  export type FilmesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    favoritos?: boolean | Filmes$favoritosArgs<ExtArgs>
+    _count?: boolean | FilmesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type FilmesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type FilmesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $FilmesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Filmes"
+    objects: {
+      favoritos: Prisma.$FavoritoPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      titulo: string
+      descricao: string
+      imagemUrl: string
+      created_at: Date
+      updated_at: Date
+      deleted_at: Date | null
+    }, ExtArgs["result"]["filmes"]>
+    composites: {}
+  }
+
+  type FilmesGetPayload<S extends boolean | null | undefined | FilmesDefaultArgs> = $Result.GetResult<Prisma.$FilmesPayload, S>
+
+  type FilmesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FilmesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FilmesCountAggregateInputType | true
+    }
+
+  export interface FilmesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Filmes'], meta: { name: 'Filmes' } }
+    /**
+     * Find zero or one Filmes that matches the filter.
+     * @param {FilmesFindUniqueArgs} args - Arguments to find a Filmes
+     * @example
+     * // Get one Filmes
+     * const filmes = await prisma.filmes.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FilmesFindUniqueArgs>(args: SelectSubset<T, FilmesFindUniqueArgs<ExtArgs>>): Prisma__FilmesClient<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Filmes that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FilmesFindUniqueOrThrowArgs} args - Arguments to find a Filmes
+     * @example
+     * // Get one Filmes
+     * const filmes = await prisma.filmes.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FilmesFindUniqueOrThrowArgs>(args: SelectSubset<T, FilmesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FilmesClient<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Filmes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilmesFindFirstArgs} args - Arguments to find a Filmes
+     * @example
+     * // Get one Filmes
+     * const filmes = await prisma.filmes.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FilmesFindFirstArgs>(args?: SelectSubset<T, FilmesFindFirstArgs<ExtArgs>>): Prisma__FilmesClient<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Filmes that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilmesFindFirstOrThrowArgs} args - Arguments to find a Filmes
+     * @example
+     * // Get one Filmes
+     * const filmes = await prisma.filmes.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FilmesFindFirstOrThrowArgs>(args?: SelectSubset<T, FilmesFindFirstOrThrowArgs<ExtArgs>>): Prisma__FilmesClient<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Filmes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilmesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Filmes
+     * const filmes = await prisma.filmes.findMany()
+     * 
+     * // Get first 10 Filmes
+     * const filmes = await prisma.filmes.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const filmesWithIdOnly = await prisma.filmes.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FilmesFindManyArgs>(args?: SelectSubset<T, FilmesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Filmes.
+     * @param {FilmesCreateArgs} args - Arguments to create a Filmes.
+     * @example
+     * // Create one Filmes
+     * const Filmes = await prisma.filmes.create({
+     *   data: {
+     *     // ... data to create a Filmes
+     *   }
+     * })
+     * 
+     */
+    create<T extends FilmesCreateArgs>(args: SelectSubset<T, FilmesCreateArgs<ExtArgs>>): Prisma__FilmesClient<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Filmes.
+     * @param {FilmesCreateManyArgs} args - Arguments to create many Filmes.
+     * @example
+     * // Create many Filmes
+     * const filmes = await prisma.filmes.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FilmesCreateManyArgs>(args?: SelectSubset<T, FilmesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Filmes and returns the data saved in the database.
+     * @param {FilmesCreateManyAndReturnArgs} args - Arguments to create many Filmes.
+     * @example
+     * // Create many Filmes
+     * const filmes = await prisma.filmes.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Filmes and only return the `id`
+     * const filmesWithIdOnly = await prisma.filmes.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FilmesCreateManyAndReturnArgs>(args?: SelectSubset<T, FilmesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Filmes.
+     * @param {FilmesDeleteArgs} args - Arguments to delete one Filmes.
+     * @example
+     * // Delete one Filmes
+     * const Filmes = await prisma.filmes.delete({
+     *   where: {
+     *     // ... filter to delete one Filmes
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FilmesDeleteArgs>(args: SelectSubset<T, FilmesDeleteArgs<ExtArgs>>): Prisma__FilmesClient<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Filmes.
+     * @param {FilmesUpdateArgs} args - Arguments to update one Filmes.
+     * @example
+     * // Update one Filmes
+     * const filmes = await prisma.filmes.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FilmesUpdateArgs>(args: SelectSubset<T, FilmesUpdateArgs<ExtArgs>>): Prisma__FilmesClient<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Filmes.
+     * @param {FilmesDeleteManyArgs} args - Arguments to filter Filmes to delete.
+     * @example
+     * // Delete a few Filmes
+     * const { count } = await prisma.filmes.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FilmesDeleteManyArgs>(args?: SelectSubset<T, FilmesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Filmes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilmesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Filmes
+     * const filmes = await prisma.filmes.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FilmesUpdateManyArgs>(args: SelectSubset<T, FilmesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Filmes and returns the data updated in the database.
+     * @param {FilmesUpdateManyAndReturnArgs} args - Arguments to update many Filmes.
+     * @example
+     * // Update many Filmes
+     * const filmes = await prisma.filmes.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Filmes and only return the `id`
+     * const filmesWithIdOnly = await prisma.filmes.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FilmesUpdateManyAndReturnArgs>(args: SelectSubset<T, FilmesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Filmes.
+     * @param {FilmesUpsertArgs} args - Arguments to update or create a Filmes.
+     * @example
+     * // Update or create a Filmes
+     * const filmes = await prisma.filmes.upsert({
+     *   create: {
+     *     // ... data to create a Filmes
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Filmes we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FilmesUpsertArgs>(args: SelectSubset<T, FilmesUpsertArgs<ExtArgs>>): Prisma__FilmesClient<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Filmes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilmesCountArgs} args - Arguments to filter Filmes to count.
+     * @example
+     * // Count the number of Filmes
+     * const count = await prisma.filmes.count({
+     *   where: {
+     *     // ... the filter for the Filmes we want to count
+     *   }
+     * })
+    **/
+    count<T extends FilmesCountArgs>(
+      args?: Subset<T, FilmesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FilmesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Filmes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilmesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FilmesAggregateArgs>(args: Subset<T, FilmesAggregateArgs>): Prisma.PrismaPromise<GetFilmesAggregateType<T>>
+
+    /**
+     * Group by Filmes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilmesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FilmesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FilmesGroupByArgs['orderBy'] }
+        : { orderBy?: FilmesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FilmesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFilmesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Filmes model
+   */
+  readonly fields: FilmesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Filmes.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FilmesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    favoritos<T extends Filmes$favoritosArgs<ExtArgs> = {}>(args?: Subset<T, Filmes$favoritosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Filmes model
+   */
+  interface FilmesFieldRefs {
+    readonly id: FieldRef<"Filmes", 'Int'>
+    readonly titulo: FieldRef<"Filmes", 'String'>
+    readonly descricao: FieldRef<"Filmes", 'String'>
+    readonly imagemUrl: FieldRef<"Filmes", 'String'>
+    readonly created_at: FieldRef<"Filmes", 'DateTime'>
+    readonly updated_at: FieldRef<"Filmes", 'DateTime'>
+    readonly deleted_at: FieldRef<"Filmes", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Filmes findUnique
+   */
+  export type FilmesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilmesInclude<ExtArgs> | null
+    /**
+     * Filter, which Filmes to fetch.
+     */
+    where: FilmesWhereUniqueInput
+  }
+
+  /**
+   * Filmes findUniqueOrThrow
+   */
+  export type FilmesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilmesInclude<ExtArgs> | null
+    /**
+     * Filter, which Filmes to fetch.
+     */
+    where: FilmesWhereUniqueInput
+  }
+
+  /**
+   * Filmes findFirst
+   */
+  export type FilmesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilmesInclude<ExtArgs> | null
+    /**
+     * Filter, which Filmes to fetch.
+     */
+    where?: FilmesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Filmes to fetch.
+     */
+    orderBy?: FilmesOrderByWithRelationInput | FilmesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Filmes.
+     */
+    cursor?: FilmesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Filmes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Filmes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Filmes.
+     */
+    distinct?: FilmesScalarFieldEnum | FilmesScalarFieldEnum[]
+  }
+
+  /**
+   * Filmes findFirstOrThrow
+   */
+  export type FilmesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilmesInclude<ExtArgs> | null
+    /**
+     * Filter, which Filmes to fetch.
+     */
+    where?: FilmesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Filmes to fetch.
+     */
+    orderBy?: FilmesOrderByWithRelationInput | FilmesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Filmes.
+     */
+    cursor?: FilmesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Filmes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Filmes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Filmes.
+     */
+    distinct?: FilmesScalarFieldEnum | FilmesScalarFieldEnum[]
+  }
+
+  /**
+   * Filmes findMany
+   */
+  export type FilmesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilmesInclude<ExtArgs> | null
+    /**
+     * Filter, which Filmes to fetch.
+     */
+    where?: FilmesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Filmes to fetch.
+     */
+    orderBy?: FilmesOrderByWithRelationInput | FilmesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Filmes.
+     */
+    cursor?: FilmesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Filmes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Filmes.
+     */
+    skip?: number
+    distinct?: FilmesScalarFieldEnum | FilmesScalarFieldEnum[]
+  }
+
+  /**
+   * Filmes create
+   */
+  export type FilmesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilmesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Filmes.
+     */
+    data: XOR<FilmesCreateInput, FilmesUncheckedCreateInput>
+  }
+
+  /**
+   * Filmes createMany
+   */
+  export type FilmesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Filmes.
+     */
+    data: FilmesCreateManyInput | FilmesCreateManyInput[]
+  }
+
+  /**
+   * Filmes createManyAndReturn
+   */
+  export type FilmesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * The data used to create many Filmes.
+     */
+    data: FilmesCreateManyInput | FilmesCreateManyInput[]
+  }
+
+  /**
+   * Filmes update
+   */
+  export type FilmesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilmesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Filmes.
+     */
+    data: XOR<FilmesUpdateInput, FilmesUncheckedUpdateInput>
+    /**
+     * Choose, which Filmes to update.
+     */
+    where: FilmesWhereUniqueInput
+  }
+
+  /**
+   * Filmes updateMany
+   */
+  export type FilmesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Filmes.
+     */
+    data: XOR<FilmesUpdateManyMutationInput, FilmesUncheckedUpdateManyInput>
+    /**
+     * Filter which Filmes to update
+     */
+    where?: FilmesWhereInput
+    /**
+     * Limit how many Filmes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Filmes updateManyAndReturn
+   */
+  export type FilmesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * The data used to update Filmes.
+     */
+    data: XOR<FilmesUpdateManyMutationInput, FilmesUncheckedUpdateManyInput>
+    /**
+     * Filter which Filmes to update
+     */
+    where?: FilmesWhereInput
+    /**
+     * Limit how many Filmes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Filmes upsert
+   */
+  export type FilmesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilmesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Filmes to update in case it exists.
+     */
+    where: FilmesWhereUniqueInput
+    /**
+     * In case the Filmes found by the `where` argument doesn't exist, create a new Filmes with this data.
+     */
+    create: XOR<FilmesCreateInput, FilmesUncheckedCreateInput>
+    /**
+     * In case the Filmes was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FilmesUpdateInput, FilmesUncheckedUpdateInput>
+  }
+
+  /**
+   * Filmes delete
+   */
+  export type FilmesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilmesInclude<ExtArgs> | null
+    /**
+     * Filter which Filmes to delete.
+     */
+    where: FilmesWhereUniqueInput
+  }
+
+  /**
+   * Filmes deleteMany
+   */
+  export type FilmesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Filmes to delete
+     */
+    where?: FilmesWhereInput
+    /**
+     * Limit how many Filmes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Filmes.favoritos
+   */
+  export type Filmes$favoritosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    where?: FavoritoWhereInput
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    cursor?: FavoritoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FavoritoScalarFieldEnum | FavoritoScalarFieldEnum[]
+  }
+
+  /**
+   * Filmes without action
+   */
+  export type FilmesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filmes
+     */
+    select?: FilmesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filmes
+     */
+    omit?: FilmesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilmesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Favorito
+   */
+
+  export type AggregateFavorito = {
+    _count: FavoritoCountAggregateOutputType | null
+    _avg: FavoritoAvgAggregateOutputType | null
+    _sum: FavoritoSumAggregateOutputType | null
+    _min: FavoritoMinAggregateOutputType | null
+    _max: FavoritoMaxAggregateOutputType | null
+  }
+
+  export type FavoritoAvgAggregateOutputType = {
+    id: number | null
+    usuario_id: number | null
+    filme_id: number | null
+  }
+
+  export type FavoritoSumAggregateOutputType = {
+    id: number | null
+    usuario_id: number | null
+    filme_id: number | null
+  }
+
+  export type FavoritoMinAggregateOutputType = {
+    id: number | null
+    usuario_id: number | null
+    filme_id: number | null
+    created_at: Date | null
+  }
+
+  export type FavoritoMaxAggregateOutputType = {
+    id: number | null
+    usuario_id: number | null
+    filme_id: number | null
+    created_at: Date | null
+  }
+
+  export type FavoritoCountAggregateOutputType = {
+    id: number
+    usuario_id: number
+    filme_id: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type FavoritoAvgAggregateInputType = {
+    id?: true
+    usuario_id?: true
+    filme_id?: true
+  }
+
+  export type FavoritoSumAggregateInputType = {
+    id?: true
+    usuario_id?: true
+    filme_id?: true
+  }
+
+  export type FavoritoMinAggregateInputType = {
+    id?: true
+    usuario_id?: true
+    filme_id?: true
+    created_at?: true
+  }
+
+  export type FavoritoMaxAggregateInputType = {
+    id?: true
+    usuario_id?: true
+    filme_id?: true
+    created_at?: true
+  }
+
+  export type FavoritoCountAggregateInputType = {
+    id?: true
+    usuario_id?: true
+    filme_id?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type FavoritoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Favorito to aggregate.
+     */
+    where?: FavoritoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Favoritos to fetch.
+     */
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FavoritoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Favoritos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Favoritos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Favoritos
+    **/
+    _count?: true | FavoritoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FavoritoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FavoritoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FavoritoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FavoritoMaxAggregateInputType
+  }
+
+  export type GetFavoritoAggregateType<T extends FavoritoAggregateArgs> = {
+        [P in keyof T & keyof AggregateFavorito]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFavorito[P]>
+      : GetScalarType<T[P], AggregateFavorito[P]>
+  }
+
+
+
+
+  export type FavoritoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoritoWhereInput
+    orderBy?: FavoritoOrderByWithAggregationInput | FavoritoOrderByWithAggregationInput[]
+    by: FavoritoScalarFieldEnum[] | FavoritoScalarFieldEnum
+    having?: FavoritoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FavoritoCountAggregateInputType | true
+    _avg?: FavoritoAvgAggregateInputType
+    _sum?: FavoritoSumAggregateInputType
+    _min?: FavoritoMinAggregateInputType
+    _max?: FavoritoMaxAggregateInputType
+  }
+
+  export type FavoritoGroupByOutputType = {
+    id: number
+    usuario_id: number
+    filme_id: number
+    created_at: Date
+    _count: FavoritoCountAggregateOutputType | null
+    _avg: FavoritoAvgAggregateOutputType | null
+    _sum: FavoritoSumAggregateOutputType | null
+    _min: FavoritoMinAggregateOutputType | null
+    _max: FavoritoMaxAggregateOutputType | null
+  }
+
+  type GetFavoritoGroupByPayload<T extends FavoritoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FavoritoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FavoritoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FavoritoGroupByOutputType[P]>
+            : GetScalarType<T[P], FavoritoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FavoritoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    usuario_id?: boolean
+    filme_id?: boolean
+    created_at?: boolean
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+    filme?: boolean | FilmesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["favorito"]>
+
+  export type FavoritoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    usuario_id?: boolean
+    filme_id?: boolean
+    created_at?: boolean
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+    filme?: boolean | FilmesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["favorito"]>
+
+  export type FavoritoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    usuario_id?: boolean
+    filme_id?: boolean
+    created_at?: boolean
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+    filme?: boolean | FilmesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["favorito"]>
+
+  export type FavoritoSelectScalar = {
+    id?: boolean
+    usuario_id?: boolean
+    filme_id?: boolean
+    created_at?: boolean
+  }
+
+  export type FavoritoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "usuario_id" | "filme_id" | "created_at", ExtArgs["result"]["favorito"]>
+  export type FavoritoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+    filme?: boolean | FilmesDefaultArgs<ExtArgs>
+  }
+  export type FavoritoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+    filme?: boolean | FilmesDefaultArgs<ExtArgs>
+  }
+  export type FavoritoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+    filme?: boolean | FilmesDefaultArgs<ExtArgs>
+  }
+
+  export type $FavoritoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Favorito"
+    objects: {
+      usuario: Prisma.$UsuarioPayload<ExtArgs>
+      filme: Prisma.$FilmesPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      usuario_id: number
+      filme_id: number
+      created_at: Date
+    }, ExtArgs["result"]["favorito"]>
+    composites: {}
+  }
+
+  type FavoritoGetPayload<S extends boolean | null | undefined | FavoritoDefaultArgs> = $Result.GetResult<Prisma.$FavoritoPayload, S>
+
+  type FavoritoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FavoritoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FavoritoCountAggregateInputType | true
+    }
+
+  export interface FavoritoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Favorito'], meta: { name: 'Favorito' } }
+    /**
+     * Find zero or one Favorito that matches the filter.
+     * @param {FavoritoFindUniqueArgs} args - Arguments to find a Favorito
+     * @example
+     * // Get one Favorito
+     * const favorito = await prisma.favorito.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FavoritoFindUniqueArgs>(args: SelectSubset<T, FavoritoFindUniqueArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Favorito that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FavoritoFindUniqueOrThrowArgs} args - Arguments to find a Favorito
+     * @example
+     * // Get one Favorito
+     * const favorito = await prisma.favorito.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FavoritoFindUniqueOrThrowArgs>(args: SelectSubset<T, FavoritoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Favorito that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoFindFirstArgs} args - Arguments to find a Favorito
+     * @example
+     * // Get one Favorito
+     * const favorito = await prisma.favorito.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FavoritoFindFirstArgs>(args?: SelectSubset<T, FavoritoFindFirstArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Favorito that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoFindFirstOrThrowArgs} args - Arguments to find a Favorito
+     * @example
+     * // Get one Favorito
+     * const favorito = await prisma.favorito.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FavoritoFindFirstOrThrowArgs>(args?: SelectSubset<T, FavoritoFindFirstOrThrowArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Favoritos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Favoritos
+     * const favoritos = await prisma.favorito.findMany()
+     * 
+     * // Get first 10 Favoritos
+     * const favoritos = await prisma.favorito.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const favoritoWithIdOnly = await prisma.favorito.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FavoritoFindManyArgs>(args?: SelectSubset<T, FavoritoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Favorito.
+     * @param {FavoritoCreateArgs} args - Arguments to create a Favorito.
+     * @example
+     * // Create one Favorito
+     * const Favorito = await prisma.favorito.create({
+     *   data: {
+     *     // ... data to create a Favorito
+     *   }
+     * })
+     * 
+     */
+    create<T extends FavoritoCreateArgs>(args: SelectSubset<T, FavoritoCreateArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Favoritos.
+     * @param {FavoritoCreateManyArgs} args - Arguments to create many Favoritos.
+     * @example
+     * // Create many Favoritos
+     * const favorito = await prisma.favorito.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FavoritoCreateManyArgs>(args?: SelectSubset<T, FavoritoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Favoritos and returns the data saved in the database.
+     * @param {FavoritoCreateManyAndReturnArgs} args - Arguments to create many Favoritos.
+     * @example
+     * // Create many Favoritos
+     * const favorito = await prisma.favorito.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Favoritos and only return the `id`
+     * const favoritoWithIdOnly = await prisma.favorito.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FavoritoCreateManyAndReturnArgs>(args?: SelectSubset<T, FavoritoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Favorito.
+     * @param {FavoritoDeleteArgs} args - Arguments to delete one Favorito.
+     * @example
+     * // Delete one Favorito
+     * const Favorito = await prisma.favorito.delete({
+     *   where: {
+     *     // ... filter to delete one Favorito
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FavoritoDeleteArgs>(args: SelectSubset<T, FavoritoDeleteArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Favorito.
+     * @param {FavoritoUpdateArgs} args - Arguments to update one Favorito.
+     * @example
+     * // Update one Favorito
+     * const favorito = await prisma.favorito.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FavoritoUpdateArgs>(args: SelectSubset<T, FavoritoUpdateArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Favoritos.
+     * @param {FavoritoDeleteManyArgs} args - Arguments to filter Favoritos to delete.
+     * @example
+     * // Delete a few Favoritos
+     * const { count } = await prisma.favorito.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FavoritoDeleteManyArgs>(args?: SelectSubset<T, FavoritoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Favoritos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Favoritos
+     * const favorito = await prisma.favorito.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FavoritoUpdateManyArgs>(args: SelectSubset<T, FavoritoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Favoritos and returns the data updated in the database.
+     * @param {FavoritoUpdateManyAndReturnArgs} args - Arguments to update many Favoritos.
+     * @example
+     * // Update many Favoritos
+     * const favorito = await prisma.favorito.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Favoritos and only return the `id`
+     * const favoritoWithIdOnly = await prisma.favorito.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FavoritoUpdateManyAndReturnArgs>(args: SelectSubset<T, FavoritoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Favorito.
+     * @param {FavoritoUpsertArgs} args - Arguments to update or create a Favorito.
+     * @example
+     * // Update or create a Favorito
+     * const favorito = await prisma.favorito.upsert({
+     *   create: {
+     *     // ... data to create a Favorito
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Favorito we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FavoritoUpsertArgs>(args: SelectSubset<T, FavoritoUpsertArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Favoritos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoCountArgs} args - Arguments to filter Favoritos to count.
+     * @example
+     * // Count the number of Favoritos
+     * const count = await prisma.favorito.count({
+     *   where: {
+     *     // ... the filter for the Favoritos we want to count
+     *   }
+     * })
+    **/
+    count<T extends FavoritoCountArgs>(
+      args?: Subset<T, FavoritoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FavoritoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Favorito.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FavoritoAggregateArgs>(args: Subset<T, FavoritoAggregateArgs>): Prisma.PrismaPromise<GetFavoritoAggregateType<T>>
+
+    /**
+     * Group by Favorito.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FavoritoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FavoritoGroupByArgs['orderBy'] }
+        : { orderBy?: FavoritoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FavoritoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFavoritoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Favorito model
+   */
+  readonly fields: FavoritoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Favorito.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FavoritoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    usuario<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    filme<T extends FilmesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FilmesDefaultArgs<ExtArgs>>): Prisma__FilmesClient<$Result.GetResult<Prisma.$FilmesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Favorito model
+   */
+  interface FavoritoFieldRefs {
+    readonly id: FieldRef<"Favorito", 'Int'>
+    readonly usuario_id: FieldRef<"Favorito", 'Int'>
+    readonly filme_id: FieldRef<"Favorito", 'Int'>
+    readonly created_at: FieldRef<"Favorito", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Favorito findUnique
+   */
+  export type FavoritoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter, which Favorito to fetch.
+     */
+    where: FavoritoWhereUniqueInput
+  }
+
+  /**
+   * Favorito findUniqueOrThrow
+   */
+  export type FavoritoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter, which Favorito to fetch.
+     */
+    where: FavoritoWhereUniqueInput
+  }
+
+  /**
+   * Favorito findFirst
+   */
+  export type FavoritoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter, which Favorito to fetch.
+     */
+    where?: FavoritoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Favoritos to fetch.
+     */
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Favoritos.
+     */
+    cursor?: FavoritoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Favoritos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Favoritos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Favoritos.
+     */
+    distinct?: FavoritoScalarFieldEnum | FavoritoScalarFieldEnum[]
+  }
+
+  /**
+   * Favorito findFirstOrThrow
+   */
+  export type FavoritoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter, which Favorito to fetch.
+     */
+    where?: FavoritoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Favoritos to fetch.
+     */
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Favoritos.
+     */
+    cursor?: FavoritoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Favoritos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Favoritos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Favoritos.
+     */
+    distinct?: FavoritoScalarFieldEnum | FavoritoScalarFieldEnum[]
+  }
+
+  /**
+   * Favorito findMany
+   */
+  export type FavoritoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter, which Favoritos to fetch.
+     */
+    where?: FavoritoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Favoritos to fetch.
+     */
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Favoritos.
+     */
+    cursor?: FavoritoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Favoritos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Favoritos.
+     */
+    skip?: number
+    distinct?: FavoritoScalarFieldEnum | FavoritoScalarFieldEnum[]
+  }
+
+  /**
+   * Favorito create
+   */
+  export type FavoritoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Favorito.
+     */
+    data: XOR<FavoritoCreateInput, FavoritoUncheckedCreateInput>
+  }
+
+  /**
+   * Favorito createMany
+   */
+  export type FavoritoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Favoritos.
+     */
+    data: FavoritoCreateManyInput | FavoritoCreateManyInput[]
+  }
+
+  /**
+   * Favorito createManyAndReturn
+   */
+  export type FavoritoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * The data used to create many Favoritos.
+     */
+    data: FavoritoCreateManyInput | FavoritoCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Favorito update
+   */
+  export type FavoritoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Favorito.
+     */
+    data: XOR<FavoritoUpdateInput, FavoritoUncheckedUpdateInput>
+    /**
+     * Choose, which Favorito to update.
+     */
+    where: FavoritoWhereUniqueInput
+  }
+
+  /**
+   * Favorito updateMany
+   */
+  export type FavoritoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Favoritos.
+     */
+    data: XOR<FavoritoUpdateManyMutationInput, FavoritoUncheckedUpdateManyInput>
+    /**
+     * Filter which Favoritos to update
+     */
+    where?: FavoritoWhereInput
+    /**
+     * Limit how many Favoritos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Favorito updateManyAndReturn
+   */
+  export type FavoritoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * The data used to update Favoritos.
+     */
+    data: XOR<FavoritoUpdateManyMutationInput, FavoritoUncheckedUpdateManyInput>
+    /**
+     * Filter which Favoritos to update
+     */
+    where?: FavoritoWhereInput
+    /**
+     * Limit how many Favoritos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Favorito upsert
+   */
+  export type FavoritoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Favorito to update in case it exists.
+     */
+    where: FavoritoWhereUniqueInput
+    /**
+     * In case the Favorito found by the `where` argument doesn't exist, create a new Favorito with this data.
+     */
+    create: XOR<FavoritoCreateInput, FavoritoUncheckedCreateInput>
+    /**
+     * In case the Favorito was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FavoritoUpdateInput, FavoritoUncheckedUpdateInput>
+  }
+
+  /**
+   * Favorito delete
+   */
+  export type FavoritoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter which Favorito to delete.
+     */
+    where: FavoritoWhereUniqueInput
+  }
+
+  /**
+   * Favorito deleteMany
+   */
+  export type FavoritoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Favoritos to delete
+     */
+    where?: FavoritoWhereInput
+    /**
+     * Limit how many Favoritos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Favorito without action
+   */
+  export type FavoritoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4548,6 +7019,29 @@ export namespace Prisma {
   };
 
   export type TarefaScalarFieldEnum = (typeof TarefaScalarFieldEnum)[keyof typeof TarefaScalarFieldEnum]
+
+
+  export const FilmesScalarFieldEnum: {
+    id: 'id',
+    titulo: 'titulo',
+    descricao: 'descricao',
+    imagemUrl: 'imagemUrl',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
+    deleted_at: 'deleted_at'
+  };
+
+  export type FilmesScalarFieldEnum = (typeof FilmesScalarFieldEnum)[keyof typeof FilmesScalarFieldEnum]
+
+
+  export const FavoritoScalarFieldEnum: {
+    id: 'id',
+    usuario_id: 'usuario_id',
+    filme_id: 'filme_id',
+    created_at: 'created_at'
+  };
+
+  export type FavoritoScalarFieldEnum = (typeof FavoritoScalarFieldEnum)[keyof typeof FavoritoScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4623,6 +7117,7 @@ export namespace Prisma {
     deleted_at?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     postagens?: PostagemListRelationFilter
     Tarefa?: TarefaListRelationFilter
+    favorito?: FavoritoListRelationFilter
   }
 
   export type UsuarioOrderByWithRelationInput = {
@@ -4636,6 +7131,7 @@ export namespace Prisma {
     deleted_at?: SortOrderInput | SortOrder
     postagens?: PostagemOrderByRelationAggregateInput
     Tarefa?: TarefaOrderByRelationAggregateInput
+    favorito?: FavoritoOrderByRelationAggregateInput
   }
 
   export type UsuarioWhereUniqueInput = Prisma.AtLeast<{
@@ -4652,6 +7148,7 @@ export namespace Prisma {
     deleted_at?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     postagens?: PostagemListRelationFilter
     Tarefa?: TarefaListRelationFilter
+    favorito?: FavoritoListRelationFilter
   }, "id" | "email">
 
   export type UsuarioOrderByWithAggregationInput = {
@@ -4818,6 +7315,129 @@ export namespace Prisma {
     deleted_at?: DateTimeNullableWithAggregatesFilter<"Tarefa"> | Date | string | null
   }
 
+  export type FilmesWhereInput = {
+    AND?: FilmesWhereInput | FilmesWhereInput[]
+    OR?: FilmesWhereInput[]
+    NOT?: FilmesWhereInput | FilmesWhereInput[]
+    id?: IntFilter<"Filmes"> | number
+    titulo?: StringFilter<"Filmes"> | string
+    descricao?: StringFilter<"Filmes"> | string
+    imagemUrl?: StringFilter<"Filmes"> | string
+    created_at?: DateTimeFilter<"Filmes"> | Date | string
+    updated_at?: DateTimeFilter<"Filmes"> | Date | string
+    deleted_at?: DateTimeNullableFilter<"Filmes"> | Date | string | null
+    favoritos?: FavoritoListRelationFilter
+  }
+
+  export type FilmesOrderByWithRelationInput = {
+    id?: SortOrder
+    titulo?: SortOrder
+    descricao?: SortOrder
+    imagemUrl?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrderInput | SortOrder
+    favoritos?: FavoritoOrderByRelationAggregateInput
+  }
+
+  export type FilmesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: FilmesWhereInput | FilmesWhereInput[]
+    OR?: FilmesWhereInput[]
+    NOT?: FilmesWhereInput | FilmesWhereInput[]
+    titulo?: StringFilter<"Filmes"> | string
+    descricao?: StringFilter<"Filmes"> | string
+    imagemUrl?: StringFilter<"Filmes"> | string
+    created_at?: DateTimeFilter<"Filmes"> | Date | string
+    updated_at?: DateTimeFilter<"Filmes"> | Date | string
+    deleted_at?: DateTimeNullableFilter<"Filmes"> | Date | string | null
+    favoritos?: FavoritoListRelationFilter
+  }, "id">
+
+  export type FilmesOrderByWithAggregationInput = {
+    id?: SortOrder
+    titulo?: SortOrder
+    descricao?: SortOrder
+    imagemUrl?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrderInput | SortOrder
+    _count?: FilmesCountOrderByAggregateInput
+    _avg?: FilmesAvgOrderByAggregateInput
+    _max?: FilmesMaxOrderByAggregateInput
+    _min?: FilmesMinOrderByAggregateInput
+    _sum?: FilmesSumOrderByAggregateInput
+  }
+
+  export type FilmesScalarWhereWithAggregatesInput = {
+    AND?: FilmesScalarWhereWithAggregatesInput | FilmesScalarWhereWithAggregatesInput[]
+    OR?: FilmesScalarWhereWithAggregatesInput[]
+    NOT?: FilmesScalarWhereWithAggregatesInput | FilmesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Filmes"> | number
+    titulo?: StringWithAggregatesFilter<"Filmes"> | string
+    descricao?: StringWithAggregatesFilter<"Filmes"> | string
+    imagemUrl?: StringWithAggregatesFilter<"Filmes"> | string
+    created_at?: DateTimeWithAggregatesFilter<"Filmes"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"Filmes"> | Date | string
+    deleted_at?: DateTimeNullableWithAggregatesFilter<"Filmes"> | Date | string | null
+  }
+
+  export type FavoritoWhereInput = {
+    AND?: FavoritoWhereInput | FavoritoWhereInput[]
+    OR?: FavoritoWhereInput[]
+    NOT?: FavoritoWhereInput | FavoritoWhereInput[]
+    id?: IntFilter<"Favorito"> | number
+    usuario_id?: IntFilter<"Favorito"> | number
+    filme_id?: IntFilter<"Favorito"> | number
+    created_at?: DateTimeFilter<"Favorito"> | Date | string
+    usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
+    filme?: XOR<FilmesScalarRelationFilter, FilmesWhereInput>
+  }
+
+  export type FavoritoOrderByWithRelationInput = {
+    id?: SortOrder
+    usuario_id?: SortOrder
+    filme_id?: SortOrder
+    created_at?: SortOrder
+    usuario?: UsuarioOrderByWithRelationInput
+    filme?: FilmesOrderByWithRelationInput
+  }
+
+  export type FavoritoWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    usuario_id_filme_id?: FavoritoUsuario_idFilme_idCompoundUniqueInput
+    AND?: FavoritoWhereInput | FavoritoWhereInput[]
+    OR?: FavoritoWhereInput[]
+    NOT?: FavoritoWhereInput | FavoritoWhereInput[]
+    usuario_id?: IntFilter<"Favorito"> | number
+    filme_id?: IntFilter<"Favorito"> | number
+    created_at?: DateTimeFilter<"Favorito"> | Date | string
+    usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
+    filme?: XOR<FilmesScalarRelationFilter, FilmesWhereInput>
+  }, "id" | "usuario_id_filme_id">
+
+  export type FavoritoOrderByWithAggregationInput = {
+    id?: SortOrder
+    usuario_id?: SortOrder
+    filme_id?: SortOrder
+    created_at?: SortOrder
+    _count?: FavoritoCountOrderByAggregateInput
+    _avg?: FavoritoAvgOrderByAggregateInput
+    _max?: FavoritoMaxOrderByAggregateInput
+    _min?: FavoritoMinOrderByAggregateInput
+    _sum?: FavoritoSumOrderByAggregateInput
+  }
+
+  export type FavoritoScalarWhereWithAggregatesInput = {
+    AND?: FavoritoScalarWhereWithAggregatesInput | FavoritoScalarWhereWithAggregatesInput[]
+    OR?: FavoritoScalarWhereWithAggregatesInput[]
+    NOT?: FavoritoScalarWhereWithAggregatesInput | FavoritoScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Favorito"> | number
+    usuario_id?: IntWithAggregatesFilter<"Favorito"> | number
+    filme_id?: IntWithAggregatesFilter<"Favorito"> | number
+    created_at?: DateTimeWithAggregatesFilter<"Favorito"> | Date | string
+  }
+
   export type UsuarioCreateInput = {
     name: string
     email?: string | null
@@ -4828,6 +7448,7 @@ export namespace Prisma {
     deleted_at?: Date | string | null
     postagens?: PostagemCreateNestedManyWithoutUsuarioInput
     Tarefa?: TarefaCreateNestedManyWithoutUsuarioInput
+    favorito?: FavoritoCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateInput = {
@@ -4841,6 +7462,7 @@ export namespace Prisma {
     deleted_at?: Date | string | null
     postagens?: PostagemUncheckedCreateNestedManyWithoutUsuarioInput
     Tarefa?: TarefaUncheckedCreateNestedManyWithoutUsuarioInput
+    favorito?: FavoritoUncheckedCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioUpdateInput = {
@@ -4853,6 +7475,7 @@ export namespace Prisma {
     deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     postagens?: PostagemUpdateManyWithoutUsuarioNestedInput
     Tarefa?: TarefaUpdateManyWithoutUsuarioNestedInput
+    favorito?: FavoritoUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateInput = {
@@ -4866,6 +7489,7 @@ export namespace Prisma {
     deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     postagens?: PostagemUncheckedUpdateManyWithoutUsuarioNestedInput
     Tarefa?: TarefaUncheckedUpdateManyWithoutUsuarioNestedInput
+    favorito?: FavoritoUncheckedUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioCreateManyInput = {
@@ -5032,6 +7656,121 @@ export namespace Prisma {
     deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type FilmesCreateInput = {
+    titulo: string
+    descricao: string
+    imagemUrl: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    favoritos?: FavoritoCreateNestedManyWithoutFilmeInput
+  }
+
+  export type FilmesUncheckedCreateInput = {
+    id?: number
+    titulo: string
+    descricao: string
+    imagemUrl: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutFilmeInput
+  }
+
+  export type FilmesUpdateInput = {
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    imagemUrl?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    favoritos?: FavoritoUpdateManyWithoutFilmeNestedInput
+  }
+
+  export type FilmesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    imagemUrl?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    favoritos?: FavoritoUncheckedUpdateManyWithoutFilmeNestedInput
+  }
+
+  export type FilmesCreateManyInput = {
+    id?: number
+    titulo: string
+    descricao: string
+    imagemUrl: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+  }
+
+  export type FilmesUpdateManyMutationInput = {
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    imagemUrl?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type FilmesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    imagemUrl?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type FavoritoCreateInput = {
+    created_at?: Date | string
+    usuario: UsuarioCreateNestedOneWithoutFavoritoInput
+    filme: FilmesCreateNestedOneWithoutFavoritosInput
+  }
+
+  export type FavoritoUncheckedCreateInput = {
+    id?: number
+    usuario_id: number
+    filme_id: number
+    created_at?: Date | string
+  }
+
+  export type FavoritoUpdateInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    usuario?: UsuarioUpdateOneRequiredWithoutFavoritoNestedInput
+    filme?: FilmesUpdateOneRequiredWithoutFavoritosNestedInput
+  }
+
+  export type FavoritoUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuario_id?: IntFieldUpdateOperationsInput | number
+    filme_id?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoCreateManyInput = {
+    id?: number
+    usuario_id: number
+    filme_id: number
+    created_at?: Date | string
+  }
+
+  export type FavoritoUpdateManyMutationInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuario_id?: IntFieldUpdateOperationsInput | number
+    filme_id?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -5105,6 +7844,12 @@ export namespace Prisma {
     none?: TarefaWhereInput
   }
 
+  export type FavoritoListRelationFilter = {
+    every?: FavoritoWhereInput
+    some?: FavoritoWhereInput
+    none?: FavoritoWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -5115,6 +7860,10 @@ export namespace Prisma {
   }
 
   export type TarefaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FavoritoOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -5335,6 +8084,87 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
+  export type FilmesCountOrderByAggregateInput = {
+    id?: SortOrder
+    titulo?: SortOrder
+    descricao?: SortOrder
+    imagemUrl?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+  }
+
+  export type FilmesAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type FilmesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    titulo?: SortOrder
+    descricao?: SortOrder
+    imagemUrl?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+  }
+
+  export type FilmesMinOrderByAggregateInput = {
+    id?: SortOrder
+    titulo?: SortOrder
+    descricao?: SortOrder
+    imagemUrl?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    deleted_at?: SortOrder
+  }
+
+  export type FilmesSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type FilmesScalarRelationFilter = {
+    is?: FilmesWhereInput
+    isNot?: FilmesWhereInput
+  }
+
+  export type FavoritoUsuario_idFilme_idCompoundUniqueInput = {
+    usuario_id: number
+    filme_id: number
+  }
+
+  export type FavoritoCountOrderByAggregateInput = {
+    id?: SortOrder
+    usuario_id?: SortOrder
+    filme_id?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type FavoritoAvgOrderByAggregateInput = {
+    id?: SortOrder
+    usuario_id?: SortOrder
+    filme_id?: SortOrder
+  }
+
+  export type FavoritoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    usuario_id?: SortOrder
+    filme_id?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type FavoritoMinOrderByAggregateInput = {
+    id?: SortOrder
+    usuario_id?: SortOrder
+    filme_id?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type FavoritoSumOrderByAggregateInput = {
+    id?: SortOrder
+    usuario_id?: SortOrder
+    filme_id?: SortOrder
+  }
+
   export type PostagemCreateNestedManyWithoutUsuarioInput = {
     create?: XOR<PostagemCreateWithoutUsuarioInput, PostagemUncheckedCreateWithoutUsuarioInput> | PostagemCreateWithoutUsuarioInput[] | PostagemUncheckedCreateWithoutUsuarioInput[]
     connectOrCreate?: PostagemCreateOrConnectWithoutUsuarioInput | PostagemCreateOrConnectWithoutUsuarioInput[]
@@ -5349,6 +8179,13 @@ export namespace Prisma {
     connect?: TarefaWhereUniqueInput | TarefaWhereUniqueInput[]
   }
 
+  export type FavoritoCreateNestedManyWithoutUsuarioInput = {
+    create?: XOR<FavoritoCreateWithoutUsuarioInput, FavoritoUncheckedCreateWithoutUsuarioInput> | FavoritoCreateWithoutUsuarioInput[] | FavoritoUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutUsuarioInput | FavoritoCreateOrConnectWithoutUsuarioInput[]
+    createMany?: FavoritoCreateManyUsuarioInputEnvelope
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+  }
+
   export type PostagemUncheckedCreateNestedManyWithoutUsuarioInput = {
     create?: XOR<PostagemCreateWithoutUsuarioInput, PostagemUncheckedCreateWithoutUsuarioInput> | PostagemCreateWithoutUsuarioInput[] | PostagemUncheckedCreateWithoutUsuarioInput[]
     connectOrCreate?: PostagemCreateOrConnectWithoutUsuarioInput | PostagemCreateOrConnectWithoutUsuarioInput[]
@@ -5361,6 +8198,13 @@ export namespace Prisma {
     connectOrCreate?: TarefaCreateOrConnectWithoutUsuarioInput | TarefaCreateOrConnectWithoutUsuarioInput[]
     createMany?: TarefaCreateManyUsuarioInputEnvelope
     connect?: TarefaWhereUniqueInput | TarefaWhereUniqueInput[]
+  }
+
+  export type FavoritoUncheckedCreateNestedManyWithoutUsuarioInput = {
+    create?: XOR<FavoritoCreateWithoutUsuarioInput, FavoritoUncheckedCreateWithoutUsuarioInput> | FavoritoCreateWithoutUsuarioInput[] | FavoritoUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutUsuarioInput | FavoritoCreateOrConnectWithoutUsuarioInput[]
+    createMany?: FavoritoCreateManyUsuarioInputEnvelope
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -5407,6 +8251,20 @@ export namespace Prisma {
     deleteMany?: TarefaScalarWhereInput | TarefaScalarWhereInput[]
   }
 
+  export type FavoritoUpdateManyWithoutUsuarioNestedInput = {
+    create?: XOR<FavoritoCreateWithoutUsuarioInput, FavoritoUncheckedCreateWithoutUsuarioInput> | FavoritoCreateWithoutUsuarioInput[] | FavoritoUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutUsuarioInput | FavoritoCreateOrConnectWithoutUsuarioInput[]
+    upsert?: FavoritoUpsertWithWhereUniqueWithoutUsuarioInput | FavoritoUpsertWithWhereUniqueWithoutUsuarioInput[]
+    createMany?: FavoritoCreateManyUsuarioInputEnvelope
+    set?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    disconnect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    delete?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    update?: FavoritoUpdateWithWhereUniqueWithoutUsuarioInput | FavoritoUpdateWithWhereUniqueWithoutUsuarioInput[]
+    updateMany?: FavoritoUpdateManyWithWhereWithoutUsuarioInput | FavoritoUpdateManyWithWhereWithoutUsuarioInput[]
+    deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -5443,6 +8301,20 @@ export namespace Prisma {
     deleteMany?: TarefaScalarWhereInput | TarefaScalarWhereInput[]
   }
 
+  export type FavoritoUncheckedUpdateManyWithoutUsuarioNestedInput = {
+    create?: XOR<FavoritoCreateWithoutUsuarioInput, FavoritoUncheckedCreateWithoutUsuarioInput> | FavoritoCreateWithoutUsuarioInput[] | FavoritoUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutUsuarioInput | FavoritoCreateOrConnectWithoutUsuarioInput[]
+    upsert?: FavoritoUpsertWithWhereUniqueWithoutUsuarioInput | FavoritoUpsertWithWhereUniqueWithoutUsuarioInput[]
+    createMany?: FavoritoCreateManyUsuarioInputEnvelope
+    set?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    disconnect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    delete?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    update?: FavoritoUpdateWithWhereUniqueWithoutUsuarioInput | FavoritoUpdateWithWhereUniqueWithoutUsuarioInput[]
+    updateMany?: FavoritoUpdateManyWithWhereWithoutUsuarioInput | FavoritoUpdateManyWithWhereWithoutUsuarioInput[]
+    deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+  }
+
   export type UsuarioCreateNestedOneWithoutPostagensInput = {
     create?: XOR<UsuarioCreateWithoutPostagensInput, UsuarioUncheckedCreateWithoutPostagensInput>
     connectOrCreate?: UsuarioCreateOrConnectWithoutPostagensInput
@@ -5473,6 +8345,76 @@ export namespace Prisma {
     upsert?: UsuarioUpsertWithoutTarefaInput
     connect?: UsuarioWhereUniqueInput
     update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutTarefaInput, UsuarioUpdateWithoutTarefaInput>, UsuarioUncheckedUpdateWithoutTarefaInput>
+  }
+
+  export type FavoritoCreateNestedManyWithoutFilmeInput = {
+    create?: XOR<FavoritoCreateWithoutFilmeInput, FavoritoUncheckedCreateWithoutFilmeInput> | FavoritoCreateWithoutFilmeInput[] | FavoritoUncheckedCreateWithoutFilmeInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutFilmeInput | FavoritoCreateOrConnectWithoutFilmeInput[]
+    createMany?: FavoritoCreateManyFilmeInputEnvelope
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+  }
+
+  export type FavoritoUncheckedCreateNestedManyWithoutFilmeInput = {
+    create?: XOR<FavoritoCreateWithoutFilmeInput, FavoritoUncheckedCreateWithoutFilmeInput> | FavoritoCreateWithoutFilmeInput[] | FavoritoUncheckedCreateWithoutFilmeInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutFilmeInput | FavoritoCreateOrConnectWithoutFilmeInput[]
+    createMany?: FavoritoCreateManyFilmeInputEnvelope
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+  }
+
+  export type FavoritoUpdateManyWithoutFilmeNestedInput = {
+    create?: XOR<FavoritoCreateWithoutFilmeInput, FavoritoUncheckedCreateWithoutFilmeInput> | FavoritoCreateWithoutFilmeInput[] | FavoritoUncheckedCreateWithoutFilmeInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutFilmeInput | FavoritoCreateOrConnectWithoutFilmeInput[]
+    upsert?: FavoritoUpsertWithWhereUniqueWithoutFilmeInput | FavoritoUpsertWithWhereUniqueWithoutFilmeInput[]
+    createMany?: FavoritoCreateManyFilmeInputEnvelope
+    set?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    disconnect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    delete?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    update?: FavoritoUpdateWithWhereUniqueWithoutFilmeInput | FavoritoUpdateWithWhereUniqueWithoutFilmeInput[]
+    updateMany?: FavoritoUpdateManyWithWhereWithoutFilmeInput | FavoritoUpdateManyWithWhereWithoutFilmeInput[]
+    deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+  }
+
+  export type FavoritoUncheckedUpdateManyWithoutFilmeNestedInput = {
+    create?: XOR<FavoritoCreateWithoutFilmeInput, FavoritoUncheckedCreateWithoutFilmeInput> | FavoritoCreateWithoutFilmeInput[] | FavoritoUncheckedCreateWithoutFilmeInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutFilmeInput | FavoritoCreateOrConnectWithoutFilmeInput[]
+    upsert?: FavoritoUpsertWithWhereUniqueWithoutFilmeInput | FavoritoUpsertWithWhereUniqueWithoutFilmeInput[]
+    createMany?: FavoritoCreateManyFilmeInputEnvelope
+    set?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    disconnect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    delete?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    update?: FavoritoUpdateWithWhereUniqueWithoutFilmeInput | FavoritoUpdateWithWhereUniqueWithoutFilmeInput[]
+    updateMany?: FavoritoUpdateManyWithWhereWithoutFilmeInput | FavoritoUpdateManyWithWhereWithoutFilmeInput[]
+    deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+  }
+
+  export type UsuarioCreateNestedOneWithoutFavoritoInput = {
+    create?: XOR<UsuarioCreateWithoutFavoritoInput, UsuarioUncheckedCreateWithoutFavoritoInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutFavoritoInput
+    connect?: UsuarioWhereUniqueInput
+  }
+
+  export type FilmesCreateNestedOneWithoutFavoritosInput = {
+    create?: XOR<FilmesCreateWithoutFavoritosInput, FilmesUncheckedCreateWithoutFavoritosInput>
+    connectOrCreate?: FilmesCreateOrConnectWithoutFavoritosInput
+    connect?: FilmesWhereUniqueInput
+  }
+
+  export type UsuarioUpdateOneRequiredWithoutFavoritoNestedInput = {
+    create?: XOR<UsuarioCreateWithoutFavoritoInput, UsuarioUncheckedCreateWithoutFavoritoInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutFavoritoInput
+    upsert?: UsuarioUpsertWithoutFavoritoInput
+    connect?: UsuarioWhereUniqueInput
+    update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutFavoritoInput, UsuarioUpdateWithoutFavoritoInput>, UsuarioUncheckedUpdateWithoutFavoritoInput>
+  }
+
+  export type FilmesUpdateOneRequiredWithoutFavoritosNestedInput = {
+    create?: XOR<FilmesCreateWithoutFavoritosInput, FilmesUncheckedCreateWithoutFavoritosInput>
+    connectOrCreate?: FilmesCreateOrConnectWithoutFavoritosInput
+    upsert?: FilmesUpsertWithoutFavoritosInput
+    connect?: FilmesWhereUniqueInput
+    update?: XOR<XOR<FilmesUpdateToOneWithWhereWithoutFavoritosInput, FilmesUpdateWithoutFavoritosInput>, FilmesUncheckedUpdateWithoutFavoritosInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -5701,6 +8643,26 @@ export namespace Prisma {
     data: TarefaCreateManyUsuarioInput | TarefaCreateManyUsuarioInput[]
   }
 
+  export type FavoritoCreateWithoutUsuarioInput = {
+    created_at?: Date | string
+    filme: FilmesCreateNestedOneWithoutFavoritosInput
+  }
+
+  export type FavoritoUncheckedCreateWithoutUsuarioInput = {
+    id?: number
+    filme_id: number
+    created_at?: Date | string
+  }
+
+  export type FavoritoCreateOrConnectWithoutUsuarioInput = {
+    where: FavoritoWhereUniqueInput
+    create: XOR<FavoritoCreateWithoutUsuarioInput, FavoritoUncheckedCreateWithoutUsuarioInput>
+  }
+
+  export type FavoritoCreateManyUsuarioInputEnvelope = {
+    data: FavoritoCreateManyUsuarioInput | FavoritoCreateManyUsuarioInput[]
+  }
+
   export type PostagemUpsertWithWhereUniqueWithoutUsuarioInput = {
     where: PostagemWhereUniqueInput
     update: XOR<PostagemUpdateWithoutUsuarioInput, PostagemUncheckedUpdateWithoutUsuarioInput>
@@ -5759,6 +8721,32 @@ export namespace Prisma {
     deleted_at?: DateTimeNullableFilter<"Tarefa"> | Date | string | null
   }
 
+  export type FavoritoUpsertWithWhereUniqueWithoutUsuarioInput = {
+    where: FavoritoWhereUniqueInput
+    update: XOR<FavoritoUpdateWithoutUsuarioInput, FavoritoUncheckedUpdateWithoutUsuarioInput>
+    create: XOR<FavoritoCreateWithoutUsuarioInput, FavoritoUncheckedCreateWithoutUsuarioInput>
+  }
+
+  export type FavoritoUpdateWithWhereUniqueWithoutUsuarioInput = {
+    where: FavoritoWhereUniqueInput
+    data: XOR<FavoritoUpdateWithoutUsuarioInput, FavoritoUncheckedUpdateWithoutUsuarioInput>
+  }
+
+  export type FavoritoUpdateManyWithWhereWithoutUsuarioInput = {
+    where: FavoritoScalarWhereInput
+    data: XOR<FavoritoUpdateManyMutationInput, FavoritoUncheckedUpdateManyWithoutUsuarioInput>
+  }
+
+  export type FavoritoScalarWhereInput = {
+    AND?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+    OR?: FavoritoScalarWhereInput[]
+    NOT?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+    id?: IntFilter<"Favorito"> | number
+    usuario_id?: IntFilter<"Favorito"> | number
+    filme_id?: IntFilter<"Favorito"> | number
+    created_at?: DateTimeFilter<"Favorito"> | Date | string
+  }
+
   export type UsuarioCreateWithoutPostagensInput = {
     name: string
     email?: string | null
@@ -5768,6 +8756,7 @@ export namespace Prisma {
     updated_at?: Date | string
     deleted_at?: Date | string | null
     Tarefa?: TarefaCreateNestedManyWithoutUsuarioInput
+    favorito?: FavoritoCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateWithoutPostagensInput = {
@@ -5780,6 +8769,7 @@ export namespace Prisma {
     updated_at?: Date | string
     deleted_at?: Date | string | null
     Tarefa?: TarefaUncheckedCreateNestedManyWithoutUsuarioInput
+    favorito?: FavoritoUncheckedCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioCreateOrConnectWithoutPostagensInput = {
@@ -5807,6 +8797,7 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     Tarefa?: TarefaUpdateManyWithoutUsuarioNestedInput
+    favorito?: FavoritoUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateWithoutPostagensInput = {
@@ -5819,6 +8810,7 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     Tarefa?: TarefaUncheckedUpdateManyWithoutUsuarioNestedInput
+    favorito?: FavoritoUncheckedUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioCreateWithoutTarefaInput = {
@@ -5830,6 +8822,7 @@ export namespace Prisma {
     updated_at?: Date | string
     deleted_at?: Date | string | null
     postagens?: PostagemCreateNestedManyWithoutUsuarioInput
+    favorito?: FavoritoCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateWithoutTarefaInput = {
@@ -5842,6 +8835,7 @@ export namespace Prisma {
     updated_at?: Date | string
     deleted_at?: Date | string | null
     postagens?: PostagemUncheckedCreateNestedManyWithoutUsuarioInput
+    favorito?: FavoritoUncheckedCreateNestedManyWithoutUsuarioInput
   }
 
   export type UsuarioCreateOrConnectWithoutTarefaInput = {
@@ -5869,6 +8863,7 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     postagens?: PostagemUpdateManyWithoutUsuarioNestedInput
+    favorito?: FavoritoUpdateManyWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateWithoutTarefaInput = {
@@ -5881,6 +8876,163 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     postagens?: PostagemUncheckedUpdateManyWithoutUsuarioNestedInput
+    favorito?: FavoritoUncheckedUpdateManyWithoutUsuarioNestedInput
+  }
+
+  export type FavoritoCreateWithoutFilmeInput = {
+    created_at?: Date | string
+    usuario: UsuarioCreateNestedOneWithoutFavoritoInput
+  }
+
+  export type FavoritoUncheckedCreateWithoutFilmeInput = {
+    id?: number
+    usuario_id: number
+    created_at?: Date | string
+  }
+
+  export type FavoritoCreateOrConnectWithoutFilmeInput = {
+    where: FavoritoWhereUniqueInput
+    create: XOR<FavoritoCreateWithoutFilmeInput, FavoritoUncheckedCreateWithoutFilmeInput>
+  }
+
+  export type FavoritoCreateManyFilmeInputEnvelope = {
+    data: FavoritoCreateManyFilmeInput | FavoritoCreateManyFilmeInput[]
+  }
+
+  export type FavoritoUpsertWithWhereUniqueWithoutFilmeInput = {
+    where: FavoritoWhereUniqueInput
+    update: XOR<FavoritoUpdateWithoutFilmeInput, FavoritoUncheckedUpdateWithoutFilmeInput>
+    create: XOR<FavoritoCreateWithoutFilmeInput, FavoritoUncheckedCreateWithoutFilmeInput>
+  }
+
+  export type FavoritoUpdateWithWhereUniqueWithoutFilmeInput = {
+    where: FavoritoWhereUniqueInput
+    data: XOR<FavoritoUpdateWithoutFilmeInput, FavoritoUncheckedUpdateWithoutFilmeInput>
+  }
+
+  export type FavoritoUpdateManyWithWhereWithoutFilmeInput = {
+    where: FavoritoScalarWhereInput
+    data: XOR<FavoritoUpdateManyMutationInput, FavoritoUncheckedUpdateManyWithoutFilmeInput>
+  }
+
+  export type UsuarioCreateWithoutFavoritoInput = {
+    name: string
+    email?: string | null
+    image?: string | null
+    apelido?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    postagens?: PostagemCreateNestedManyWithoutUsuarioInput
+    Tarefa?: TarefaCreateNestedManyWithoutUsuarioInput
+  }
+
+  export type UsuarioUncheckedCreateWithoutFavoritoInput = {
+    id?: number
+    name: string
+    email?: string | null
+    image?: string | null
+    apelido?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+    postagens?: PostagemUncheckedCreateNestedManyWithoutUsuarioInput
+    Tarefa?: TarefaUncheckedCreateNestedManyWithoutUsuarioInput
+  }
+
+  export type UsuarioCreateOrConnectWithoutFavoritoInput = {
+    where: UsuarioWhereUniqueInput
+    create: XOR<UsuarioCreateWithoutFavoritoInput, UsuarioUncheckedCreateWithoutFavoritoInput>
+  }
+
+  export type FilmesCreateWithoutFavoritosInput = {
+    titulo: string
+    descricao: string
+    imagemUrl: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+  }
+
+  export type FilmesUncheckedCreateWithoutFavoritosInput = {
+    id?: number
+    titulo: string
+    descricao: string
+    imagemUrl: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    deleted_at?: Date | string | null
+  }
+
+  export type FilmesCreateOrConnectWithoutFavoritosInput = {
+    where: FilmesWhereUniqueInput
+    create: XOR<FilmesCreateWithoutFavoritosInput, FilmesUncheckedCreateWithoutFavoritosInput>
+  }
+
+  export type UsuarioUpsertWithoutFavoritoInput = {
+    update: XOR<UsuarioUpdateWithoutFavoritoInput, UsuarioUncheckedUpdateWithoutFavoritoInput>
+    create: XOR<UsuarioCreateWithoutFavoritoInput, UsuarioUncheckedCreateWithoutFavoritoInput>
+    where?: UsuarioWhereInput
+  }
+
+  export type UsuarioUpdateToOneWithWhereWithoutFavoritoInput = {
+    where?: UsuarioWhereInput
+    data: XOR<UsuarioUpdateWithoutFavoritoInput, UsuarioUncheckedUpdateWithoutFavoritoInput>
+  }
+
+  export type UsuarioUpdateWithoutFavoritoInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    apelido?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    postagens?: PostagemUpdateManyWithoutUsuarioNestedInput
+    Tarefa?: TarefaUpdateManyWithoutUsuarioNestedInput
+  }
+
+  export type UsuarioUncheckedUpdateWithoutFavoritoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    apelido?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    postagens?: PostagemUncheckedUpdateManyWithoutUsuarioNestedInput
+    Tarefa?: TarefaUncheckedUpdateManyWithoutUsuarioNestedInput
+  }
+
+  export type FilmesUpsertWithoutFavoritosInput = {
+    update: XOR<FilmesUpdateWithoutFavoritosInput, FilmesUncheckedUpdateWithoutFavoritosInput>
+    create: XOR<FilmesCreateWithoutFavoritosInput, FilmesUncheckedCreateWithoutFavoritosInput>
+    where?: FilmesWhereInput
+  }
+
+  export type FilmesUpdateToOneWithWhereWithoutFavoritosInput = {
+    where?: FilmesWhereInput
+    data: XOR<FilmesUpdateWithoutFavoritosInput, FilmesUncheckedUpdateWithoutFavoritosInput>
+  }
+
+  export type FilmesUpdateWithoutFavoritosInput = {
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    imagemUrl?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type FilmesUncheckedUpdateWithoutFavoritosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    imagemUrl?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type PostagemCreateManyUsuarioInput = {
@@ -5899,6 +9051,12 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     deleted_at?: Date | string | null
+  }
+
+  export type FavoritoCreateManyUsuarioInput = {
+    id?: number
+    filme_id: number
+    created_at?: Date | string
   }
 
   export type PostagemUpdateWithoutUsuarioInput = {
@@ -5951,6 +9109,46 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     deleted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type FavoritoUpdateWithoutUsuarioInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    filme?: FilmesUpdateOneRequiredWithoutFavoritosNestedInput
+  }
+
+  export type FavoritoUncheckedUpdateWithoutUsuarioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    filme_id?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoUncheckedUpdateManyWithoutUsuarioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    filme_id?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoCreateManyFilmeInput = {
+    id?: number
+    usuario_id: number
+    created_at?: Date | string
+  }
+
+  export type FavoritoUpdateWithoutFilmeInput = {
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    usuario?: UsuarioUpdateOneRequiredWithoutFavoritoNestedInput
+  }
+
+  export type FavoritoUncheckedUpdateWithoutFilmeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuario_id?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoUncheckedUpdateManyWithoutFilmeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    usuario_id?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

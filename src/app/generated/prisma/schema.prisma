@@ -19,6 +19,7 @@ model Usuario {
   deleted_at DateTime?
   postagens  Postagem[]
   Tarefa     Tarefa[]
+  favorito   Favorito[]
 
   @@map("usuarios")
 }
@@ -47,4 +48,30 @@ model Tarefa {
   deleted_at DateTime?
 
   @@map("tarefas")
+}
+
+model Filmes {
+  id         Int        @id @default(autoincrement())
+  titulo     String
+  descricao  String
+  imagemUrl  String
+  favoritos  Favorito[]
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+  deleted_at DateTime?
+
+  @@map("filmes")
+}
+
+model Favorito {
+  id         Int     @id @default(autoincrement())
+  usuario    Usuario @relation(fields: [usuario_id], references: [id])
+  usuario_id Int
+  filme      Filmes  @relation(fields: [filme_id], references: [id])
+  filme_id   Int
+
+  created_at DateTime @default(now())
+
+  @@unique([usuario_id, filme_id])
+  @@map("favoritos")
 }
